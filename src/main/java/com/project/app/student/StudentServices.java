@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentServices {
@@ -20,6 +19,10 @@ public class StudentServices {
         return studentList;
     }
 
+    public List<Student> findByCollage(String collage) {
+        return studentRepo.findByCollege(collage);
+    }
+
     public Student addStudent(Student student){
         return studentRepo.save(student) ;
     }
@@ -32,9 +35,5 @@ public class StudentServices {
     public String deleteStudent(long studentId) {
         studentRepo.deleteById(studentId);
         return "Student Deleted" ;
-    }
-
-    public List<Student> findByCollage(String collage) {
-        return studentRepo.findByCollege(collage);
     }
 }
