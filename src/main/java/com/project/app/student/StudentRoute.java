@@ -26,7 +26,7 @@ public class StudentRoute {
     }
 
     @PostMapping
-    public Student addHandler(@RequestBody Student student){
+    public ResponseEntity<String> addHandler(@RequestBody Student student){
         return services.addStudent(student);
     }
 

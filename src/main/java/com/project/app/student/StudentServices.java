@@ -24,14 +24,15 @@ public class StudentServices {
         return studentRepo.findByCollege(collage);
     }
 
-    public Student addStudent(Student student){
-        return studentRepo.save(student) ;
+    public ResponseEntity<String> addStudent(Student student){
+        long id = studentRepo.save(student).getId() ;
+        return ResponseEntity.ok().body("New Student Added With ID: " + id);
     }
 
 
     public ResponseEntity<String> updateStudent(long studentId , Student student) {
         if(studentRepo.findById(studentId).isPresent()){
-            return ResponseEntity.ok().body("New Student Added with ID Number: " + studentId);
+            return ResponseEntity.ok().body("Student with ID Number: " + studentId +" Updated");
         }else{
             return ResponseEntity.badRequest().body("Invalid Student ID");
         }
