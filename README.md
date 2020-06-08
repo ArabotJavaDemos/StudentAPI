@@ -29,7 +29,7 @@
 
 
 #### Tests
-- Tested with Swagger, results in the `swagger.jso` file 
+- Tested with Swagger, results in the `swagger.jso` [File](swagger.json) 
 
 
 #### UML
