@@ -1,6 +1,7 @@
 package com.project.app.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -28,12 +29,19 @@ public class StudentServices {
     }
 
 
-    public Student updateStudent(Student student) {
-        return studentRepo.save(student);
+    public ResponseEntity<String> updateStudent(long studentId , Student student) {
+        if(studentRepo.findById(studentId).isPresent()){
+            return ResponseEntity.ok().body("New Student Added with ID Number: " + studentId);
+        }else{
+            return ResponseEntity.badRequest().body("Invalid Student ID");
+        }
     }
 
-    public String deleteStudent(long studentId) {
-        studentRepo.deleteById(studentId);
-        return "Student Deleted" ;
+    public ResponseEntity<String> deleteStudent(long studentId) {
+        if(studentRepo.findById(studentId).isPresent()){
+            return ResponseEntity.ok().body("Student Data Deleted!");
+        }else{
+            return ResponseEntity.badRequest().body("Invalid Student ID");
+        }
     }
 }

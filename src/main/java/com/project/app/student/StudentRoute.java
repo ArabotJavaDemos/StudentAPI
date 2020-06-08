@@ -2,39 +2,41 @@ package com.project.app.student;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/student")
 public class StudentRoute {
 
     @Autowired
     StudentServices services ;
 
-    @GetMapping("/student")
+    @GetMapping
     public List<Student> showAllHandler(){
         return services.showAll();
     }
 
-    @GetMapping("/student/{collage}")
+    @GetMapping("/{collage}")
     public List<Student> getByCollege(@PathVariable String collage){
         return services.findByCollage(collage);
     }
 
-    @PostMapping("/student")
+    @PostMapping
     public Student addHandler(@RequestBody Student student){
         return services.addStudent(student);
     }
 
-    @PutMapping("/student/{studentId}")
-    public Student updateHandler(@PathVariable long studentId , @RequestBody Student student){
-        return services.updateStudent(student) ;
+    @PutMapping("/{studentId}")
+    public ResponseEntity<String> updateHandler(@PathVariable long studentId , @RequestBody Student student){
+        return services.updateStudent(studentId ,student) ;
     }
 
-    @DeleteMapping("/student/{studentId}")
-    public String deleteHandler(@PathVariable long studentId){
+    @DeleteMapping("/{studentId}")
+    public ResponseEntity<String> deleteHandler(@PathVariable long studentId){
         return services.deleteStudent(studentId);
     }
 
