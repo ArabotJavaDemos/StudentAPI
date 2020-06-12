@@ -17,6 +17,11 @@
 
 - `server.port` - Port Number
 - `spring.jpa.hibernate.ddl-auto=create` - initialize the schema
+
+##### Before you start
+- Create DataBase and use the same name in the URI for Postgres Config
+- After run the App for the first time, you need to change the initialization option
+ at `application.properties` line `14` to `validate`   
 ##### POSTGRES SQL config
 - `spring.datasource.url` - the URI for Postgres SQL Database
 - `spring.datasource.username` - DB user name

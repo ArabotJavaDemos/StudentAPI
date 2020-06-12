@@ -11,33 +11,34 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/student")
+
 public class StudentController {
 
     @Autowired
     StudentService services ;
 
-    @GetMapping
-    public List<Student> showAllHandler(){
+    @GetMapping(produces = "application/json")
+    public ResponseEntity showAllHandler(){
         return services.showAll();
     }
 
     @GetMapping("/{collage}")
-    public List<Student> getByCollege(@PathVariable String collage){
+    public List<Student> getStudentByCollege(@PathVariable String collage){
         return services.findByCollage(collage);
     }
 
     @PostMapping
-    public ResponseEntity<String> addHandler(@RequestBody Student student){
+    public ResponseEntity<String> addStudent(@RequestBody Student student){
         return services.addStudent(student);
     }
 
     @PutMapping("/{studentId}")
-    public ResponseEntity<String> updateHandler(@PathVariable long studentId , @RequestBody Student student){
+    public ResponseEntity<String> updateStudent(@PathVariable long studentId , @RequestBody Student student){
         return services.updateStudent(studentId ,student) ;
     }
 
     @DeleteMapping("/{studentId}")
-    public ResponseEntity<String> deleteHandler(@PathVariable long studentId){
+    public ResponseEntity<String> deleteStudent(@PathVariable long studentId){
         return services.deleteStudent(studentId);
     }
 
