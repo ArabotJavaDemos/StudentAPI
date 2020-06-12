@@ -1,4 +1,4 @@
-package com.project.app.student;
+package io.arabot.app.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

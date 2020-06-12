@@ -1,11 +1,11 @@
-package com.project.app.main;
+package io.arabot.app.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MainRoute {
+public class MainController {
 
 @GetMapping("/")
     public String homePage(){

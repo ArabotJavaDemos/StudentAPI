@@ -1,5 +1,6 @@
-package com.project.app.student;
+package io.arabot.app.repo;
 
+import io.arabot.app.entity.Student;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

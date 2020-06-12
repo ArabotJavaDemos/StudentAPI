@@ -1,19 +1,20 @@
-package com.project.app.student;
+package io.arabot.app.controller;
 
 
+import io.arabot.app.entity.Student;
+import io.arabot.app.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/student")
-public class StudentRoute {
+public class StudentController {
 
     @Autowired
-    StudentServices services ;
+    StudentService services ;
 
     @GetMapping
     public List<Student> showAllHandler(){

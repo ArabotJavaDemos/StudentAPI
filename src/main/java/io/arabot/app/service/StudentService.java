@@ -1,5 +1,7 @@
-package com.project.app.student;
+package io.arabot.app.service;
 
+import io.arabot.app.entity.Student;
+import io.arabot.app.repo.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class StudentServices {
+public class StudentService {
 
     @Autowired
     private StudentRepo studentRepo ;

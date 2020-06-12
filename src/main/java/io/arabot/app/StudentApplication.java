@@ -1,4 +1,4 @@
-package com.project.app;
+package io.arabot.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
